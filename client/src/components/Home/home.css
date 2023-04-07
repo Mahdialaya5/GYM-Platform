@@ -1,0 +1,71 @@
+.bt{
+    margin-top: 30px;
+
+ 
+    display: flex;
+    justify-items: first baseline;
+}
+#l{
+    margin-left: 40px;
+ max-height: 50px;
+}
+#s{
+    margin-left: 40px;
+    max-height: 50px;
+}
+.h{
+    min-height: 700px;
+    height: auto;
+  background-image: url("./carousel.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+.text-primary{
+    color: #e31c25!important;
+    text-transform: capitalize!important;
+    font-size: 1.95rem;
+    font-weight: 700!important;
+    margin-left: 500px !important;
+    margin-top: 0px !important;
+    margin-bottom: 50px;
+}
+#gy{
+    color: #e31c25!important;
+    font-weight: 700!important;
+    text-transform: capitalize!important;
+   margin-top: 10px !important;
+    margin-left: 300px !important;
+    margin-bottom: 50px !important;
+}
+
+
+
+#nh{display: flex;
+    justify-content: space-between;
+    height: 90px;
+    background:transparent;
+}
+
+#sig{
+    margin-left: 28px;
+}
+.logout{
+    height: 40px;
+    margin-left: 15px;
+}
+#logoh{margin-top: 10px;
+    margin-left: 210px;
+    display: inline;
+    font-size: 40px;
+    font-family: fantasy;
+    color: rgb(2, 0, 100);
+    background-color: rgb(219, 109, 30);
+    border-radius: 38%;
+    height: 65px;
+    width: 170px;
+   padding-left: 42px;
+   font-style: italic;
+}
+#sig{
+    margin-right: 20px;
+}

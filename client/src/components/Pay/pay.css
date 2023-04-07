@@ -1,0 +1,22 @@
+.pay{
+    height: 700px;
+    background-image: url("./pa.jpg");
+    background-repeat: no-repeat ;
+    background-size: 1500px;
+}
+#p{
+    margin-top: 0;
+}
+.dl{font-size: large;
+   font-family: fantasy;
+   margin-left: 100px;
+   margin-top: 22px;
+}
+#bpay{
+    margin-top: 38px;
+    display: flex;
+    justify-content: space-around;
+}
+#news{
+    color: blue;
+}

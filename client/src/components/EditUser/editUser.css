@@ -1,0 +1,15 @@
+.edituser{
+    width: 60%;
+    margin-left: 80px;
+    margin-top: 50px;
+    
+    height: 300px;
+border-radius: 5%;
+opacity: 0.93;
+}
+#username{
+    margin-top: 8px;
+    margin-left: 80px;
+    font-weight: bold;
+    font-size: x-large;
+}

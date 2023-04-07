@@ -1,0 +1,25 @@
+.fr{ background-color: rgb(192, 192, 187);
+    width:30%;
+margin: auto;
+border-radius: 7%;
+opacity: 0.91;
+height: 700px;
+}
+.ba{
+    height: 800px;
+    background-image: url("./wl.jpg");
+    background-repeat: no-repeat ;
+    background-size: 1500px;
+}
+
+#b{
+    display: flex;
+justify-content: space-around;
+}
+
+.tit{
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+   color: #176490;
+}

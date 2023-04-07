@@ -1,0 +1,24 @@
+.addof{
+    width: 60%;
+    margin-left: 80px;
+    margin-top: 50px;
+    background-color: rgb(153, 153, 225);
+    height: 380px;
+border-radius: 5%;
+opacity: 0.93;
+}
+#adlo{
+    margin-left: 280px;
+    font-style: oblique;
+    color: blue;
+}
+#save{
+    display: flex;
+    justify-content: space-around;
+}
+#backadd{
+    background-image: url("./office.webp");
+    background-repeat: no-repeat;
+    background-size: cover ;
+    height: 800px;
+}

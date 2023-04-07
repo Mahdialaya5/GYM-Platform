@@ -1,0 +1,72 @@
+.baku{background-repeat: no-repeat;
+    animation-name: bak;
+    animation-duration: 25s;
+height: 700px;
+background-image:url("./stoc.jpg")
+}
+@keyframes bak {
+   from {background-image:url("./axio.jpg"); 
+        }
+    to {background-image:url("./stoc.jpg");}
+  }
+  
+#bp{
+    margin-top: 15px;
+    margin-left: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+#dlogout{
+        margin-left: 55px;
+    }
+#logout{
+    height: 40px;
+}
+#payp{
+    position: relative;
+    margin-left: 950px;
+  margin-top: 20px;  
+}
+#payb{
+    width: 150px;
+    
+}
+#uinfo{ background-color: beige;
+    margin-top: 18px;
+    margin-left: 20px;
+    margin-right: 150px;
+    border-radius: 2%;
+    opacity: 0.92;
+}
+
+#navpro{
+    display: flex;
+    justify-content: space-around;
+}
+#name{
+    margin-left: 10px;
+    
+    font-weight:bolder;
+    font-size: xx-large;
+   
+}
+.flxuser{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+#userinscri{
+    font-weight: 500 ;
+  font-size: larger;
+}
+#editp{margin-top: 5px;
+    margin-left: 5px;
+    width: 35px;
+    border-style: hidden;
+    background-color: rgb(172, 172, 243);
+    border-radius: 100%;
+}
+.fa-solid{
+    width: 26px;
+    font-size: medium;
+}

@@ -1,0 +1,34 @@
+.card{
+   opacity: 0.85;
+ 
+ }
+ .card:hover{color: rgb(31, 69, 222);
+  box-shadow: 4px 5px 5px 4px black;
+}
+.card-title{
+  font-weight: bolder;
+  font-size: x-large;
+  font-style: oblique;
+}
+.card-img-top{
+  height: 200px;
+}
+.card-text{
+  font-style: italic;
+  font-weight:bolder;
+  font-size: large;
+ 
+}
+#price-card{
+  margin-top: 15px;
+  font-weight: bold;
+  font-size:large;
+border-radius: 15%;
+}
+#plan{min-width: 100px;
+  width: min-content;
+  border-radius: 30% !important;
+  margin-left: 4px;
+  margin-top: 3px;
+ 
+}

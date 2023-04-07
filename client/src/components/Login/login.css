@@ -1,0 +1,27 @@
+.log{
+    background-color: rgb(192, 192, 187);
+        width:40%;
+        margin: auto;
+    
+    border-radius: 7%;
+    opacity: 0.89;
+    height: 250px;
+    }
+.blog{
+    
+    height: 657px;
+    background-image: url("./ist.jpg");
+    background-repeat: no-repeat ;
+    background-size:cover ;
+}   
+#login{
+    margin-top: 29px;
+    display: flex;
+    justify-content: space-around;
+}
+#hlogin{
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 600px;
+    color: rgb(4, 56, 56);
+}
