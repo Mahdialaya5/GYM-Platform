@@ -16,7 +16,7 @@ const navigate=useNavigate()
     dispatch(getCurrent())
   }, [])
   
-
+console.log(user.imgsrc);
   return (
     
     <div  className='baku' >

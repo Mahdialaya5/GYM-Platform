@@ -22,15 +22,14 @@ function EditUser() {
     setnewInfo(user)
   }, [user])
 
-  
 const handlesubmit=(e)=>{
- 
+
     const data = new FormData();
      data.append("name",newInfo.name)
      data.append("specialty", newInfo.specialty)
      data.append("file",image) 
      dispatch(editUser(user._id,data, navigate))
-    
+     navigate('/profile')
   }
 
 return (

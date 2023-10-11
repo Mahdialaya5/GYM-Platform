@@ -9,15 +9,16 @@ function Login() {
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const navigate=useNavigate()
+
+  
   const handleSubmit = (e) => {
    
     disptach(login({email,password}, navigate))
      
       };
 
-
-
-  return (<div className='blog'>
+return (
+  <div className='blog'>
   <h1 id='hlogin' >login</h1>
     <div className="log"  >
     <div className="form-floating">

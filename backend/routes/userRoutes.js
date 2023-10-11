@@ -17,9 +17,9 @@ router.post("/register",upload("user").single("file"), registerCheck(), validato
             return res.status(401).send({ msg: "not auth !!" })
         }
         
-        const existName = await User.findOne({ name })
+        const existName = await User.findOne({ email})
            if (existName) {
-            return res.status(400).send({ msg:"name exist,please change user name"})
+            return res.status(400).send({ msg:"email exist,please change email"})
         }
         const url = `${req.protocol}://${req.get("host")}/${req.file.path}`
         const newUser = new User(req.body)
