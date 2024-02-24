@@ -64,7 +64,7 @@ router.get("/current", isAuth(), (req, res) => {
 
 //edituser
 router.put("/:id",upload("user").single("file"),isAuth(), async (req, res) => {
-    const { name} = req.body
+    const {name} = req.body
     try {
         const existName = await User.findOne({ name })
            if (existName &&existName._id==!req.params.id) {
@@ -72,7 +72,7 @@ router.put("/:id",upload("user").single("file"),isAuth(), async (req, res) => {
         }
            const result = await User.updateOne({ _id: req.params.id }, { ...req.body })
         const UserUpdated = await  User.findOne({ _id: req.params.id })
-         
+       
          if(req.file)
              { const url = `${req.protocol}://${req.get("host")}/${req.file.path}`
              UserUpdated.logo =url
@@ -84,6 +84,7 @@ router.put("/:id",upload("user").single("file"),isAuth(), async (req, res) => {
             return res.send({ msg: "update suuccess", user: UserUpdated });
           }
         return res.status(400).send({ msg: " aleardy update " })
+       
     }
      catch (error) {
         console.log(error)
@@ -113,9 +114,8 @@ router.put("/current/:id",  async(req, res) => {
     res.status(400).send(error.message)
 }})
 
-
 //get All User  ==>protected
-router.get("/admin",isAuth(),isAdmin, async (req, res) => {
+router.get("/admin", async (req, res) => {
     try {
         const users = await User.find().sort({name:1})
         res.send( users )
