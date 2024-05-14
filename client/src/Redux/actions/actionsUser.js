@@ -1,10 +1,10 @@
 import axios from "axios";
 import { ADD_USER_FAIL, ADD_USER_SUCCESS, DELETE_ONEUSER_FAIL, DELETE_ONEUSER_SUCCESS, EDIT, EDIT_FAIL, EDIT_USER, EDIT_USER_FAIL, GET_ALLUSERS_FAIL, GET_ALLUSERS_SUCCESS, GET_CURRENT_FAIL, GET_CURRENT_SUCCESS, GET_USERS_FAIL, GET_USERS_SUCCESS, LOADINGUSERS, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, PAY, PAY_FAIL, SEARCH } from "../const/const_user";
-
+import baseURL from '../../BaseURL'
 
 export const addUser = (userBody,navigate) => async (dispatch) => {
     try {
-      const resUser= await axios.post('http://localhost:5000/api/user/register', userBody )
+      const resUser= await axios.post(`${baseURL}/api/user/register`, userBody )
       dispatch({
         type: ADD_USER_SUCCESS,
         payload: resUser.data,
@@ -22,7 +22,7 @@ export const addUser = (userBody,navigate) => async (dispatch) => {
    
 export const login = (loginUser, navigate) => async (dispatch) => {
       try {
-          const res = await axios.post("http://localhost:5000/api/user/login", loginUser)
+          const res = await axios.post(`${baseURL}/api/user/login`, loginUser)
           dispatch({ type: LOGIN_SUCCESS, payload: res.data })
          switch (res.data.user.role){
             case "admin" : 
@@ -44,7 +44,7 @@ export const login = (loginUser, navigate) => async (dispatch) => {
 export const getCurrent = () => async (dispatch) => {
       const token = localStorage.getItem("token");
       try {
-          const res = await axios.get("http://localhost:5000/api/user/current", { headers: { Authorization: `Bearer ${token}` } })
+          const res = await axios.get(`${baseURL}/api/user/current`, { headers: { Authorization: `Bearer ${token}` } })
           dispatch({ type: GET_CURRENT_SUCCESS, payload: res.data })
           
       } catch (error) {
@@ -57,7 +57,7 @@ export const editUser = (id, userBody, navigate) => async (dispatch) => {
         const token = localStorage.getItem("token");
         try {
          
-          const resUser = await axios.put(`http://localhost:5000/api/user/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
+          const resUser = await axios.put(`${baseURL}/api/user/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
            console.log(resUser);
           dispatch({
             type: EDIT_USER,
@@ -78,7 +78,7 @@ export const editUser = (id, userBody, navigate) => async (dispatch) => {
 export const newSubscribe = (id, userBody, navigate) => async (dispatch) => {
         const token = localStorage.getItem("token");
         try {
-          const resUser = await axios.put(`http://localhost:5000/api/user/current/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
+          const resUser = await axios.put(`${baseURL}/api/user/current/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
            dispatch({
             type: EDIT,
             payload:resUser.data
@@ -105,7 +105,7 @@ export const getAllUsers = () => async (dispatch) => {
         type: LOADINGUSERS,
            })
     try {
-        const res = await axios.get("http://localhost:5000/api/user/admin",{ headers: { Authorization: `Bearer ${token}` }})
+        const res = await axios.get(`${baseURL}/api/user/admin`,{ headers: { Authorization: `Bearer ${token}` }})
           dispatch({
           type: GET_ALLUSERS_SUCCESS,
           payload: res.data
@@ -128,7 +128,7 @@ export const getUsers = () => async (dispatch) => {
         dispatch({
             type: LOADINGUSERS, })
       try {
-         const res = await axios.get("http://localhost:5000/api/user/reception",{ headers: { Authorization: `Bearer ${token}` }})
+         const res = await axios.get(`${baseURL}/api/user/reception`,{ headers: { Authorization: `Bearer ${token}` }})
             dispatch({
               type: GET_USERS_SUCCESS,
               payload: res.data
@@ -146,7 +146,7 @@ export const getUsers = () => async (dispatch) => {
               const token = localStorage.getItem("token");
               try {
            
-                const resUser = await axios.put(`http://localhost:5000/api/user/reception/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
+                const resUser = await axios.put(`${baseURL}/api/user/reception/${id}`,userBody,{ headers: { Authorization: `Bearer ${token}` } })
                 console.log("resUser",resUser);
                 dispatch({
                   type:PAY,
@@ -165,7 +165,7 @@ export const getUsers = () => async (dispatch) => {
 export const deleteUser = (id) => async (dispatch) => {
               const token = localStorage.getItem("token");
             try {
-              await axios.delete(`http://localhost:5000/api/user/reception/${id}`,{ headers: { Authorization: `Bearer ${token}` }})
+              await axios.delete(`${baseURL}/api/user/reception/${id}`,{ headers: { Authorization: `Bearer ${token}` }})
               dispatch({
                 type:DELETE_ONEUSER_SUCCESS,
               })
