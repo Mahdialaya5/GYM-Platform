@@ -41,7 +41,7 @@ function App() {
 <Route path='/login' element={<LoginRoute><Login/></LoginRoute>}/>
 <Route path='/profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
 <Route path='/pay' element={<PayRoute><Pay/></PayRoute>}/>
-<Route path='/admin' element={<AdminRoutes><Admin/></AdminRoutes>}/>
+<Route path='/admin' element={<AdminRoutes><Admin/></AdminRoutes>}  />
 <Route path='/add' element={<AddOffer/>}/>
 <Route path={'/edit/:id'} element={<EditOffer/>}/>
 <Route path='/reception' element={<ReceptionRoutes><Reception/></ReceptionRoutes>}/>
