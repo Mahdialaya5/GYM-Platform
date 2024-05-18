@@ -2,7 +2,7 @@ const express = require('express');
 const connectdb = require('./config/connect');
 const path = require('path');
 const app = express();
-const port = 'https://gym-platform.onrender.com/' || 5000;
+const port =  5000;
 
 require('dotenv').config({ path: '../.env' }); 
 
@@ -23,22 +23,12 @@ app.use(express.json());
 app.use('/api/offer', require('./routes/offerRoutes'));
 app.use('/api/user', require('./routes/userRoutes'));
 
-app.use(express.static(path.join(__dirname, 'client', 'dist'))); 
-
+app.use(express.static(path.join(__dirname, 'client'))); 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html')); 
+  res.sendFile(path.join(__dirname, 'client','index.html')); 
 });
    
-// 404 handler
-app.use((req, res, next) => {
-  res.status(404).json({ message: 'API not found' });
-});
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ message: 'Something went wrong!' });
-});
 
 app.listen(port, (err) => {
   if (err) {
