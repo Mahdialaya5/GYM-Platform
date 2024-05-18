@@ -2,7 +2,7 @@ const express = require('express');
 const connectdb = require('./config/connect');
 const path = require('path');
 const app = express();
-const port = 5000;
+const port = 'https://gym-platform.onrender.com/' || 5000;
 
 require('dotenv').config({ path: '../.env' }); 
 
