@@ -4,6 +4,7 @@ const router = express.Router()
 const Offer = require("../models/Offers")
 const upload=require('../utils/multer')
 const isAuth = require('../middlewares/isAuth')
+
 //get all offers
 router.get("/", async (req, res) => {
     try {

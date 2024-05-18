@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build --prefix client",
+    "build": "npm i",
     "start": "node server.js",
     "back": "nodemon server.js"
   },
