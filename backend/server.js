@@ -1,25 +1,49 @@
 const express = require('express');
+const connectdb = require('./config/connect');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 'https://gym-platform.onrender.com/' || 5000;
 
-// Middleware
+require('dotenv').config({ path: '../.env' }); 
+
+connectdb();
+
+const cors = require('cors');
+const corsOptions = {
+  origin: '*',
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use(cors());
 
-// API routes
-app.use('/api/users', require('./routes/users'));
-app.use('/api/products', require('./routes/products'));
+// Routes
+app.use('/api/offer', require('./routes/offerRoutes'));
+app.use('/api/user', require('./routes/userRoutes'));
 
-// Serve static files from the React app in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client', 'dist'))); 
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html')); 
+});
+   
+// 404 handler
+app.use((req, res, next) => {
+  res.status(404).json({ message: 'API not found' });
+});
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong!' });
+});
+
+app.listen(port, (err) => {
+  if (err) {
+    console.error(`Error: ${err}`);
+  } else {
+    console.log(`App listening on port ${port}!`);
+  }
 });
