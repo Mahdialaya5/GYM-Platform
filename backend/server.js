@@ -1,38 +1,25 @@
 const express = require('express');
-const connectdb = require('./config/connect');
 const path = require('path');
 const app = express();
-const port = 'https://gym-platform.onrender.com/' || 5000;
+const port = process.env.PORT || 5000;
 
-require('dotenv').config({ path: '../.env' }); 
-
-connectdb();
-
-const cors = require('cors');
-const corsOptions = {
-  origin: '*',
-  credentials: true,
-  optionSuccessStatus: 200,
-};
-
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
-app.use(cors(corsOptions));
+// Middleware
 app.use(express.json());
+app.use(cors());
 
-// Routes
-app.use('/api/offer', require('./routes/offerRoutes'));
-app.use('/api/user', require('./routes/userRoutes'));
+// API routes
+app.use('/api/users', require('./routes/users'));
+app.use('/api/products', require('./routes/products'));
 
-app.use(express.static(path.join(__dirname, 'client', 'dist'))); 
+// Serve static files from the React app in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html')); 
-});
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
-app.listen(port, (err) => {
-  if (err) {
-    console.error(`Error: ${err}`);
-  } else {
-    console.log(`App listening on port ${port}!`);
-  }
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
