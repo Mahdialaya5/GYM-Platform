@@ -9,11 +9,11 @@ require('dotenv').config({ path: '../.env' });
 connectdb();
 
 const cors = require('cors');
-const corsOptions = {
+/*const corsOptions = {
   origin: '*',
   credentials: true,
   optionSuccessStatus: 200,
-};
+};*/
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
 //app.use(cors(corsOptions));
