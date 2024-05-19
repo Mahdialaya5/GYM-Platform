@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm install && npm install --prefix client && npm run build --prefix client   ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/server.js",
+    "start": "cd backend && npm run back",
     "dev":"concurrently \"cd client && npm start\" \"cd backend && npm run back\""
   },
   "author": "",
