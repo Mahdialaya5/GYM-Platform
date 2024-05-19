@@ -1,11 +1,12 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "description": "",
+  "description": "GYM",
   "main": "index.js",
   "scripts": {
     "build": "npm install && npm install --prefix client && npm run build --prefix client   ",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
     "dev":"concurrently \"cd client && npm start\" \"cd backend && npm run back\""
   },
   "author": "",
