@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install && npm install --prefix client && npm run build --prefix client &&  npm run back --prefix backend  ",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client   ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev":"concurrently \"cd client && npm start\" \"cd backend && npm run back\""
   },
