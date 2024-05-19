@@ -10,7 +10,7 @@ connectdb();
 
 const cors = require('cors');
 const corsOptions = {
-  origin: '*',
+  origin: "https://gym-platform.onrender.com",
   credentials: true,
   optionSuccessStatus: 200,
 };
