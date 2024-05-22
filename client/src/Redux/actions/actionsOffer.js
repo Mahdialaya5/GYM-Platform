@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ADD_OFFER_FAIL, ADD_OFFER_SUCCESS, DELETE_ONEOFFER_FAIL, DELETE_ONEOFFER_SUCCESS, EDIT_OFFER_FAIL, EDIT_OFFER_SUCCESS, GET_ALLOFFERS_FAIL, GET_ALLOFFERS_SUCCESS, GET_ONEOFFER_FAIL, GET_ONEOFFER_SUCCESS, LOADINGOFFERS } from "../const/const_offer";
-import baseURL from "../../BaseURL";
+
 
 export const getAllOffers = () => async (dispatch) => {
   dispatch({
@@ -26,7 +26,7 @@ export const addOffer = (offerBody,navigate) => async (dispatch) => {
     const token=localStorage.getItem('token');
     try {
       
-      const resOffer= await axios.post(`${baseURL}/api/offer`, offerBody,{ headers: { Authorization: `Bearer ${token}`} })
+      const resOffer= await axios.post(`/api/offer`, offerBody,{ headers: { Authorization: `Bearer ${token}`} })
       dispatch({
         type: ADD_OFFER_SUCCESS,
         payload: resOffer.data,
@@ -44,7 +44,7 @@ export const addOffer = (offerBody,navigate) => async (dispatch) => {
 export const editOffer = (id, offerBody, navigate) => async (dispatch) => {
       const token=localStorage.getItem('token');
       try {
-        const resOffer = await axios.put(`${baseURL}/api/offer/${id}`, offerBody,{ headers: { Authorization: `Bearer ${token}` }})
+        const resOffer = await axios.put(`/api/offer/${id}`, offerBody,{ headers: { Authorization: `Bearer ${token}` }})
         console.log(resOffer);
         dispatch({
           type: EDIT_OFFER_SUCCESS,
@@ -65,7 +65,7 @@ export const getOneOffer= (id) => async (dispatch) => {
           type: LOADINGOFFERS,
         })
         try {
-      const res = await axios.get(`${baseURL}/api/offer/${id}`,{ headers: { Authorization: `Bearer ${token}` }})
+      const res = await axios.get(`/api/offer/${id}`,{ headers: { Authorization: `Bearer ${token}` }})
           
           dispatch({
             type: GET_ONEOFFER_SUCCESS,
@@ -83,7 +83,7 @@ export const getOneOffer= (id) => async (dispatch) => {
  export const deleteOffer = (id) => async (dispatch) => {
           const token=localStorage.getItem('token');
           try {
-            await axios.delete(`${baseURL}/api/offer/${id}`,{ headers: { Authorization: `Bearer ${token}` }})
+            await axios.delete(`/api/offer/${id}`,{ headers: { Authorization: `Bearer ${token}` }})
             dispatch({
               type:DELETE_ONEOFFER_SUCCESS,
             })
