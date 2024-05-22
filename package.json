@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "gym-app",
   "main": "server.js",
+  "homepage": "https://gym-platform.onrender.com",
   "scripts": {
     "server": "nodemon backend/server.js",
     "start": "node backend/server.js",
