@@ -7,7 +7,7 @@ export const getAllOffers = () => async (dispatch) => {
     type: LOADINGOFFERS,
   })
   try {
- const res = await axios.get(`${baseURL}api/offer`)
+ const res = await axios.get('/api/offer')
     dispatch({
       type: GET_ALLOFFERS_SUCCESS,
       payload: res.data
