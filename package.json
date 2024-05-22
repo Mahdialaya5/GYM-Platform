@@ -1,8 +1,8 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "gym-app",
+  "main": "server.js",
   "scripts": {
     "server": "nodemon backend/server.js",
     "start": "node backend/server.js",
