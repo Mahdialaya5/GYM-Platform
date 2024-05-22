@@ -13,16 +13,16 @@ connectdb();
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
 //app.use(cors(corsOptions));
 app.use(express.json());
-
+app.use(express.static(path.join(__dirname, '../client/build')));
 // Routes
 app.use('/api/offer', require('./routes/offerRoutes'));
 app.use('/api/user', require('./routes/userRoutes'));
 
-app.use(express.static(path.join(__dirname,'/client')));
+
+// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,'client','index.html')); 
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
-   
 
 
 app.listen(port, (err) => {
