@@ -4,20 +4,11 @@ const path = require('path');
 const app = express();
 const port= process.env.PORT || 5000;
 
-require('dotenv').config({ path: '../.env' }); 
-
+require('dotenv').config(); 
 connectdb();
 
-const cors = require('cors');
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://gym-platform.onrender.com');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-  next();
-});
+//const cors = require('cors');
+
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
 //app.use(cors(corsOptions));
